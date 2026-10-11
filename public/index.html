@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="通过同济统一身份认证生成匿名证明码，或验证收到的证明码。">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self' https://tj-api.hachile.org; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>同济账号证明</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/config.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">tj.hachile.org</p>
+      <h1>同济账号证明</h1>
+      <p>生成证明码，或验证你收到的证明码。</p>
+    </header>
+    <p id="auth-status" class="status" role="status">暂未开放 · 等待同济开放平台批准接入</p>
+    <div class="forms">
+      <section aria-labelledby="generate-title">
+        <h2 id="generate-title">生成证明码</h2>
+        <p>在学校官网完成登录后，获得一个匿名证明码。有效期 10 分钟，验证一次即失效。</p>
+        <form id="generate-form">
+          <label class="consent"><input id="consent" type="checkbox" required disabled>我同意通过学校认证生成匿名证明码。</label>
+          <button id="generate" type="submit" disabled>登录同济并生成</button>
+        </form>
+        <div id="proof-panel" hidden>
+          <p>你的证明码</p>
+          <code id="proof-code"></code>
+          <p id="proof-expiry" class="hint"></p>
+          <button id="copy-proof" type="button">复制证明码</button>
+        </div>
+      </section>
+      <section aria-labelledby="verify-title">
+        <h2 id="verify-title">验证证明码</h2>
+        <p>输入对方提供的证明码，确认是否对应一次有效的同济账号认证。</p>
+        <form id="verify-form">
+          <label for="verify-code">证明码</label>
+          <input id="verify-code" name="code" type="text" placeholder="TJ-…" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="25" required disabled>
+          <button id="verify" type="submit" disabled>验证证明码</button>
+        </form>
+      </section>
+    </div>
+    <p id="result" class="result" role="status" aria-live="polite"></p>
+    <footer>密码仅在学校官网输入。本站数据库只保存证明码哈希和有效期，不保存姓名、学号或学校令牌。证明码可被转交，不保证出示者是账号本人，也不代表在读学籍。</footer>
+    <noscript>请启用 JavaScript 以使用证明码功能。</noscript>
+  </main>
+</body>
+</html>

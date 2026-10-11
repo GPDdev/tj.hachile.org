@@ -1,0 +1,30 @@
+:root { color-scheme: light; font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; color: #162a3e; background: #f4f6f9; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 960px; margin: 10vh auto; padding: 0 24px; }
+.eyebrow { color: #517287; font-size: 14px; letter-spacing: .08em; }
+h1 { font-size: clamp(28px, 5vw, 40px); margin: 12px 0; }
+h2 { margin: 0 0 16px; font-size: 23px; }
+p { line-height: 1.8; margin: 12px 0; }
+header > p:last-child, section > p { color: #526579; }
+.status { margin: 28px 0 20px; padding: 12px 16px; border: 1px solid #d5dfe9; border-radius: 10px; background: #eaf0f6; font-size: 14px; }
+.status.ready { color: #19654a; background: #e5f5ee; }
+.forms { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+section { min-width: 0; border: 1px solid #dce3eb; border-radius: 16px; padding: 28px; background: white; }
+form { display: grid; gap: 12px; margin-top: 24px; }
+label { font-size: 14px; }
+.consent { display: flex; gap: 9px; align-items: flex-start; line-height: 1.7; }
+.consent input { margin-top: 5px; }
+input[type="text"] { width: 100%; padding: 13px; border: 1px solid #bfcbd8; border-radius: 8px; font: inherit; }
+button { border: 0; border-radius: 8px; padding: 13px 18px; background: #17619a; color: white; font: inherit; cursor: pointer; }
+button:hover:not(:disabled) { background: #104c7b; }
+:disabled { cursor: not-allowed; opacity: .55; }
+:focus-visible { outline: 3px solid #72b1db; outline-offset: 3px; }
+#proof-panel { margin-top: 24px; border-top: 1px solid #e1e7ed; padding-top: 12px; }
+#proof-code { display: block; font-size: 17px; overflow-wrap: anywhere; user-select: all; }
+.hint, footer { font-size: 13px; color: #607183; line-height: 1.9; }
+.result { min-height: 28px; overflow-wrap: anywhere; color: #19654a; }
+.result.error { color: #ac3434; }
+footer { margin-top: 24px; }
+[hidden] { display: none !important; }
+@media (max-width: 640px) { main { margin: 40px auto; padding: 0 18px; } .forms { grid-template-columns: 1fr; } section { padding: 22px; } }
